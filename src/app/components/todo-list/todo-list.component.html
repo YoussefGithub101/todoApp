@@ -1,0 +1,72 @@
+<section class="mt-5 justify-content-center text-center">
+
+  <div >
+      <input [(ngModel)]="newTodo" placeholder="Enter new to-do">
+      <button class="btn btn-primary mx-2" (click)="addTodo()">Add</button>
+      <button class="btn btn-danger" (click)="clearAll()">Clear All</button>
+    </div>
+ 
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">description</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+      @for (todo of todos; track todo;let idx = $index) {
+
+          <tr>
+            <th scope="row">{{idx}}</th>
+            <td>{{todo}}</td>
+            <td><button class="btn btn-danger" (click)="removeTodo(idx)">Remove</button></td>
+          </tr>
+        } @empty {
+          <tr>
+            <th> </th>
+            <td><h4>There are no items.</h4></td>
+            <td></td>
+          </tr>
+       
+        }
+      </tbody>
+    </table>
+      
+<!-- 
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">description</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>fat</td>
+          </tr>
+ 
+        </tbody>
+      </table> -->
+</section>
+
+
+
+<!--     @for (todo of todos; track todo;let idx = $index) {
+      <li>{{ todo }}
+        <button (click)="removeTodo(idx)">Remove</button>
+      </li>
+      } @empty {
+      <li>There are no items.</li>
+      }
+ -->
